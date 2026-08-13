@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/moritzbeste/projects/private/cpp/fourier/build",
+  "command": "/usr/bin/c++ -Dfft_cpp_EXPORTS -isystem /opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14/include/python3.14 -isystem /Users/moritzbeste/shared_venv/.venv/lib/python3.14/site-packages/pybind11/include -isystem /opt/homebrew/opt/libomp/include -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden -flto -Xclang -fopenmp -o CMakeFiles/fft_cpp.dir/bindings.cpp.o -c /Users/moritzbeste/projects/private/cpp/fourier/bindings.cpp",
+  "file": "/Users/moritzbeste/projects/private/cpp/fourier/bindings.cpp",
+  "output": "CMakeFiles/fft_cpp.dir/bindings.cpp.o"
+},
+{
+  "directory": "/Users/moritzbeste/projects/private/cpp/fourier/build",
+  "command": "/usr/bin/c++ -Dfft_cpp_EXPORTS -isystem /opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14/include/python3.14 -isystem /Users/moritzbeste/shared_venv/.venv/lib/python3.14/site-packages/pybind11/include -isystem /opt/homebrew/opt/libomp/include -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden -flto -Xclang -fopenmp -o CMakeFiles/fft_cpp.dir/fft.cpp.o -c /Users/moritzbeste/projects/private/cpp/fourier/fft.cpp",
+  "file": "/Users/moritzbeste/projects/private/cpp/fourier/fft.cpp",
+  "output": "CMakeFiles/fft_cpp.dir/fft.cpp.o"
+}
+]
