@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -bundle -Wl,-headerpad_max_install_names -Xlinker -undefined -Xlinker dynamic_lookup -flto -o fft_cpp.cpython-314-darwin.so CMakeFiles/fft_cpp.dir/bindings.cpp.o CMakeFiles/fft_cpp.dir/fft.cpp.o  /opt/homebrew/opt/libomp/lib/libomp.dylib

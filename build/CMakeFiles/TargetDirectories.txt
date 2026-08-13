@@ -1,3 +1,0 @@
-/Users/moritzbeste/projects/private/cpp/fourier/build/CMakeFiles/fft_cpp.dir
-/Users/moritzbeste/projects/private/cpp/fourier/build/CMakeFiles/edit_cache.dir
-/Users/moritzbeste/projects/private/cpp/fourier/build/CMakeFiles/rebuild_cache.dir
