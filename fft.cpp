@@ -39,7 +39,10 @@ void fft(const double* real_input, const double* imag_input, double* real_output
 
     #pragma omp parallel
     while (k <= n) {
-        #pragma omp for
+        if (k < p) { omp_set_schedule(omp_sched_static, n / p); }
+        else       { omp_set_schedule(omp_sched_static, 1); }
+
+        #pragma omp for schedule(runtime)
         for (std::size_t i = 0; i < n / 2; ++i) {
             std::size_t j = i % (k / 2);
             std::size_t group = (i / (k / 2)) * k;
