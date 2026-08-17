@@ -76,7 +76,9 @@ def fft(seq_real, seq_imag, size):
 
 def ifft(real, imag, size):
     seq_real, seq_imag = fft(real, -imag, size)
-    seq_imag *= -1
+    
+    seq_real /= size
+    seq_imag /= -size
 
     return seq_real, seq_imag
 
