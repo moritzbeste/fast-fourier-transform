@@ -84,4 +84,37 @@ void fft(const double* real_input, const double* imag_input, double* real_output
     }
 }
 
-// std::vector<double> find_frequencies(...);
+AnalysisResult fftAnalysis(const double* real_input, const double* imag_input, std::size_t n, double dt, double threshold) {
+    AnalysisResult result;
+
+    #pragma omp parallel for
+    for (std::size_t i = 0; i <= n / 2; ++i) {
+        const double re = real_input[i];
+        const double im = imag_input[i];
+
+        const double magnitude = std::sqrt(re * re + im * im);
+
+        double amplitude = magnitude / static_cast<double>(n);
+
+        // Convert the two-sided FFT into a one sided
+        // amplitude spectrum.
+        if (i != 0 && i != n / 2) {
+            amplitude *= 2.0;
+        }
+
+        const double frequency = static_cast<double>(i) / (static_cast<double>(n) * dt);
+
+        const double phase = std::atan2(im, re);
+
+        if (amplitude > threshold) {
+            #pragma omp critical
+            {
+                result.frequencies.push_back(frequency);
+                result.amplitudes.push_back(amplitude);
+                result.phases.push_back(phase);
+            }
+        }
+    }
+
+    return result;
+}
