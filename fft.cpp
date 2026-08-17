@@ -1,9 +1,15 @@
-#include "fft.hpp"
 #include <cmath>
 #include <cstddef>
 #include <omp.h>
+#include <stdexcept>
+
+#include "fft.hpp"
 
 void fft(const double* real_input, const double* imag_input, double* real_output, double* imag_output, std::size_t n) {
+    if (!(n > 0 && ((n & (n - 1)) == 0))) {
+        throw std::runtime_error("Input Size is not a power of 2!");
+    }
+    
     ComplexBuffer ping(n);
     ComplexBuffer pong(n);
 
@@ -85,6 +91,10 @@ void fft(const double* real_input, const double* imag_input, double* real_output
 }
 
 AnalysisResult fftAnalysis(const double* real_input, const double* imag_input, std::size_t n, double dt, double threshold) {
+    if (!(n > 0 && ((n & (n - 1)) == 0))) {
+        throw std::runtime_error("Input Size is not a power of 2!");
+    }
+    
     AnalysisResult result;
 
     #pragma omp parallel for
